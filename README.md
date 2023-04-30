@@ -1,70 +1,81 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## PC
+</br>
+<table>
+  <tr> 
+    <td width = "50%" valign="top"><b>메인페이지</b><img src="https://user-images.githubusercontent.com/105877042/218711701-0320018f-07fa-4e19-a3c6-f2318d131076.JPG"/></td>
+    <td width = "50%" valign="top"><b>상세페이지</b><img src="https://user-images.githubusercontent.com/105877042/218711708-65f6a4f2-ed1b-4f0d-ad55-1a778a02b28a.JPG"/></td>
+  </tr>
+</table>
+</br>
+</br>
+</br>
 
-## Available Scripts
+  ## 모바일
+</br>
+<table>
+  <tr> 
+    <td width = "50%" valign="top"><b>메인페이지</b><img src="https://user-images.githubusercontent.com/105877042/218711724-aacc8e0b-fee9-47b5-aeae-36535812ac72.JPG"/></td>
+    <td width = "50%" valign="top"><b>상세페이지</b><img src="https://user-images.githubusercontent.com/105877042/218711727-dec20b1e-62e9-4512-a036-7f63cc8466ce.JPG"/></td>
+  </tr>
+</table>
+</br>
+</br>
+</br>
 
-In the project directory, you can run:
 
-### `npm start`
+## 프로젝트 과정
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+TMDB에서 제공하는 API를 사용하였습니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+cgv, 메가박스 사이트를 보고 pc,  모바일에서 괜찮아 보이는 디자인을 참고해서 반응형으로 제작했습니다.
 
-### `npm test`
+제공하는 API의 정보를 보고 현재 상영 중, 상영 예정작, 인기 영화를 보여주고 검색할 수도 있고
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+영화를 클릭했을 때 해당 영화의 상세정보를 보여주는 사이트를 만들고자 했습니다.
 
-### `npm run build`
+useEffect를 사용해서 불필요한 렌더링이 안생기도록 했습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+useContext로 전역 상태를 관리했습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+영화 상세 페이지에서 새로고침할 때  클릭한 영화의 ID값이 초기화 되는것을
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+local storage에 담아서 새로고침해도 보이도록 했습니다.
 
-### `npm run eject`
+새로고침을 할때 404에러가 발생해서 확인해보니 깃헙은 SPA를 지원하지 않는다고 해서
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+react-route-dom의 Browserrouter를 Hashrouter로 변경해서 해결했습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 검색창
+<ul>
+<li>검색을 클릭할때 useRef로 검색창에 focus를 설정했습니다.</li>
+<li>영화 검색은 최대 18개의 영화가 검색되도록 그리고 이미지가 없는 영화는 검색되지 않도록 했습니다.</li>
+</ul>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 현재 상영중, 상영 예정작, 인기 영화
+<ul>
+<li>component를 재활용 했습니다.</li>
+<li>제목, 줄거리가 일정칸을 넘을시 ...처리 했습니다.</li>
+</ul>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 상세페이지
+<ul>
+<li>현재 영화의 주요정보 ( 줄거리, 감독, 장르, 영화 시간, 개봉일, 평점을 볼 수 있습니다) </li>
+<li>스틸컷에서 포스터를 클릭하면 이미지를 보여주고 배경을 다시 클릭하면 이미지를 숨깁니다.</li>
+<li>출연진의 프로필을 보여주고 이미지가 없는 경우에는 기본 프로필을 보여줍니다.</li>
+<li>일정 스크롤을 내리면 header와 제목 탭을 보여주고 더 내리면 주요 정보, 스틸컷, 출연진 탭을 보여줍니다. </li>
+</ul>
 
-## Learn More
+## 디자인
+<ul>
+<li>가로 1023px, 600px 이하에서 반응형 디자인을 구현하고, styled-components를 사용했습니다.</li>
+</ul>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 라이브러리
+<ul>
+<li>추천 영화 이미지 슬라이더는 리액트 라이브러리 Swiper를 사용했습니다.</li>
+<li>
+react-spinners 라이브러리를 사용해서 현재 상영중, 상영 예정작, 인기 영화, 추천 영화에 로딩화면을 구현 했습니다. </li>
+</ul>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
