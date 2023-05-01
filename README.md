@@ -78,4 +78,3 @@ react-route-dom의 Browserrouter를 Hashrouter로 변경해서 해결했습니�
 react-spinners 라이브러리를 사용해서 현재 상영중, 상영 예정작, 인기 영화, 추천 영화에 로딩화면을 구현 했습니다. </li>
 </ul>
 
-
